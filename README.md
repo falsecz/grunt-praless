@@ -45,7 +45,7 @@ example
 }
 ```
 
-#### some/component/ui/button.less
+##### some/component/ui/button.less
 ```css
 @require 'mixins';
 
