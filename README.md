@@ -6,24 +6,29 @@ Less with namespaces @require / @provide instead of file based import
 Gruntfile.coffee
 ```coffeescript
 
-		grunt.loadNpmTasks 'grunt-praless'
+grunt.loadNpmTasks 'grunt-praless'
 
-		praless:
-			all:
-				options:
-					dest: 'client/app/css/app.css'
-					base: 'app.start'
-				files: [
-					expand: true
-					src: ['src/**/*.less']
-				]
+praless:
+	all:
+		options:
+			dest: 'client/app/css/app.css'
+			base: 'app.start'
+		files: [
+			expand: true
+			src: ['src/**/*.less']
+		]
+
 
 ```
 
 
+example
+-------
 
-app.less
-```less
+
+##### app.less
+
+```css
 // less entry point - set in options base
 @provide 'app.start';
 
@@ -31,8 +36,8 @@ app.less
 ```
 
 
-some/folder/mixins.less
-```less
+##### some/folder/mixins.less
+```css
 @provide 'mixins';
 
 .mix(@c) {
@@ -40,8 +45,8 @@ some/folder/mixins.less
 }
 ```
 
-some/component/ui/button.less
-```less
+#### some/component/ui/button.less
+```css
 @require 'mixins';
 
 @provide 'ui.button';
