@@ -1,0 +1,8 @@
+{
+  "name": "grunt-praless",
+  "version": "0.0.1",
+  "description": "",
+  "dependencies": {
+    "less": "~1.4.2"
+  }
+}
