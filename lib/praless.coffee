@@ -1,13 +1,6 @@
 less = require 'less'
 fs = require 'fs'
 
-## Ignore provide and require
-_toCss = less.tree.Directive::toCSS
-less.tree.Directive::toCSS = () ->
-	return '' if @name in ['@provide', '@require']
-	_toCss.apply @, arguments
-
-
 exports.parse = (files, importBase, base, done) ->
 
 
@@ -74,6 +67,9 @@ exports.parse = (files, importBase, base, done) ->
 		data = less2css base
 	catch err
 		return done err
+
+	# As of LESS 1.7.0 disallows unknown directives, we have to comment them out (will be remove at final output)
+	data = data.replace /(@(require|provide|include)\b)/g, "//$1"
 
 	# console.log importBase
 	parser = new less.Parser
