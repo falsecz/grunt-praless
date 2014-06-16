@@ -3,6 +3,6 @@
   "version": "0.0.2",
   "description": "",
   "dependencies": {
-    "less": "~1.7.0"
+    "less": "1.7.0"
   }
 }
